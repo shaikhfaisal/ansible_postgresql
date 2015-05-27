@@ -1,0 +1,32 @@
+data_directory = '{{ postgresql_data_directory }}'
+hba_file = '/etc/postgresql/{{ postgresql_version }}/main/pg_hba.conf'
+ident_file = '/etc/postgresql/{{ postgresql_version }}/main/pg_ident.conf'
+
+external_pid_file = '/var/run/postgresql/{{ postgresql_version }}-main.pid'
+
+port = {{ postgresql_port }}
+
+max_connections = {{ postgresql_max_connections }}
+
+unix_socket_directories = '/var/run/postgresql'
+
+ssl = {{ postgresql_ssl }}
+{% if postgresql_ssl == true %}
+ssl_cert_file = '/etc/ssl/certs/ssl-cert-snakeoil.pem'
+ssl_key_file = '/etc/ssl/private/ssl-cert-snakeoil.key'
+{% endif %}
+
+shared_buffers = {{ postgresql_shared_buffers }}
+
+log_line_prefix = '%t '
+log_timezone = 'UTC'
+
+datestyle = 'iso, dmy'
+timezone = 'UTC'
+
+lc_messages = 'en_GB.UTF-8'			# locale for system error message
+lc_monetary = 'en_GB.UTF-8'			# locale for monetary formatting
+lc_numeric = 'en_GB.UTF-8'			# locale for number formatting
+lc_time = 'en_GB.UTF-8'				# locale for time formatting
+
+default_text_search_config = 'pg_catalog.english'
