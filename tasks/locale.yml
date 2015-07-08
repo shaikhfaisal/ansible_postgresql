@@ -1,0 +1,6 @@
+---
+- name: Make sure the requested locale exists on the server
+  command: locale-gen {{ postgresql_locale }}
+
+- name: Update the list of system locales
+  command: update-locale

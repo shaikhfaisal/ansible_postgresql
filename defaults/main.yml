@@ -2,14 +2,19 @@
 postgresql_version: 9.4
 
 postgresql_packages:
-  #- postgresql-common
-  - postgresql-{{ postgresql_version }} #=9.4.2-1.pgdg14.04+1
+  - postgresql-{{ postgresql_version }}
   - postgresql-contrib-{{ postgresql_version }}
-  #- postgresql-client-common
-  #- postgresql-client-{{ postgresql_version }}
 
 postgresql_port: 5432
+
 postgresql_max_connections: 100
+
 postgresql_ssl: true
+
 postgresql_shared_buffers: 128MB
+
 postgresql_data_directory: "/var/lib/postgresql/{{ postgresql_version }}/main"
+
+postgresql_timezone: "UTC"
+
+postgresql_locale: "en_GB.UTF-8"
