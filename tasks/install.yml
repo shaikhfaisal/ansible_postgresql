@@ -7,4 +7,4 @@
 
 - name: Install postgresql
   apt: name={{ item }} state=present update_cache=yes
-  with_items: postgresql_packages
+  with_items: "{{ postgresql_packages }}"
